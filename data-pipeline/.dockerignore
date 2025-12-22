@@ -1,0 +1,54 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Git
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Dagster
+.dagster_home/
+.tmp_dagster_home*/
+storage/
+logs/
+
+# Pipeline output (mounted as volume)
+output/
+
+# Claude Code
+.claude/
+
+# Documentation
+*.md
+!README.md
+
+# OS files
+.DS_Store
+Thumbs.db

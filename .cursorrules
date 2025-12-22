@@ -1,0 +1,85 @@
+# Cursor Rules for Edna Take-Home Project
+
+## Project Structure
+
+This is a monorepo with two components:
+- `data-pipeline/` - Dagster data pipeline (Python)
+- `dashboard/` - Next.js dashboard (TypeScript)
+
+## Data Pipeline (Python)
+
+### Framework
+- Dagster with `dg` CLI tooling
+- Uses `@definitions` decorator pattern for assets
+- One asset per file in `src/data_pipeline/defs/`
+
+### Commands
+```bash
+cd data-pipeline
+docker-compose up        # Run via Docker
+uv sync                  # Install deps
+.venv/bin/dg dev         # Run dev server
+```
+
+### Conventions
+- Use Polars for DataFrame operations (not Pandas)
+- Use PyArrow for Parquet I/O
+- Parquet output must use `use_dictionary=False` for dashboard compatibility
+- Assets write to `output/` directory
+
+## Dashboard (TypeScript)
+
+### Framework
+- Next.js 16 with App Router
+- React 19
+- TypeScript strict mode
+
+### Commands
+```bash
+cd dashboard
+bun install
+bun dev                  # Dev server on port 3001
+bun run build
+bun run lint
+```
+
+### Data Layer
+- tRPC for API with React Query integration
+- Routers in `server/routers/`
+- Client hooks via `lib/trpc.ts`
+- Parquet files read from `../data-pipeline/output/`
+
+### UI Components
+- shadcn/ui components in `components/ui/`
+- Radix UI primitives
+- Tailwind CSS v4
+- Recharts for data visualization
+- Use `cn()` utility from `lib/utils.ts` for className merging
+
+### Parquet Compatibility
+The dashboard uses `parquetjs-lite` which has limited encoding support. When writing Parquet from the data pipeline, always use:
+```python
+df.write_parquet(path, use_dictionary=False, version="1.0")
+```
+
+## FASTQ Data Format
+```
+@read_id          <- Header
+ATCGATCG...       <- Sequence (A, T, C, G, N)
++                 <- Separator
+IIIIII...         <- Quality scores (ASCII Phred: quality = ord(char) - 33)
+```
+- Q30 = 99.9% accuracy (error rate 1 in 1000)
+- Q20 = 99% accuracy (error rate 1 in 100)
+
+## Code Style
+
+### TypeScript
+- Prefer `interface` over `type` for object shapes
+- Use React Server Components where possible
+- Client components must have `"use client"` directive
+
+### Python
+- Use type hints
+- Prefer Polars expressions over iterating rows
+- Use pathlib for file paths
