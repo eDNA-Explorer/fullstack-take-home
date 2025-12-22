@@ -1,4 +1,4 @@
-# Edna Take-Home Challenge
+# eDNA Explorer Take-Home Challenge
 
 This project consists of a data pipeline (Dagster) and a dashboard (Next.js). The pipeline generates mock genomic data and outputs Parquet files that the dashboard consumes via tRPC.
 
