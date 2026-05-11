@@ -55,6 +55,19 @@ Dashboard will be available at http://localhost:3001
 
 ---
 
+## Submitting Your Work
+
+**Please clone this repository — do not fork it.** Forks of this repo are public-by-default, and we want your work to stay private to you until you submit.
+
+1. Clone the repo locally (do **not** use the GitHub "Fork" button).
+2. Create a **new private repository** on your own GitHub account and push your work there.
+3. When you're ready for us to review, invite **@jimjeffers** as a collaborator on that private repo.
+4. Reply to your recruiting contact with the repo URL so we know it's ready.
+
+Keep your work private until you submit. If you have a reason you can't host on GitHub (corporate restrictions, etc.), reach out to your recruiting contact and we'll work something out.
+
+---
+
 ## AI Usage Policy
 
 We expect you to use AI tools (Claude, ChatGPT, Copilot, Cursor, etc.) during this challenge. Because agents make it easy to produce code that runs, our evaluation weights architecture, measurement, and the decisions you made (and overrode) far more heavily than raw output.
