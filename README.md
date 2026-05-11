@@ -118,8 +118,11 @@ The exact column shapes are up to you. So is tool choice: `seqkit`, `pyfastx`, B
 - Replicate and perturb the starter samples to build a larger corpus.
 - Pull real reads from public archives (SRA, ENA, MGnify).
 - Synthesize reads with `wgsim`, `dwgsim`, or `art_illumina`.
+- Simulate metagenomic communities with configurable diversity (`iss` / InSilicoSeq, CAMISIM). Community complexity is a separate stress axis from raw read volume — both are worth exploring.
 
 How big? Big enough that your design decisions show up in the numbers. Going from 8 samples to 800 should look interesting; 8,000 should be informative; 80,000 should hurt somewhere, and you should be able to explain where.
+
+Your choice of dataset generation strategy — and what you decided not to use — is itself something we'll ask about.
 
 ### What we want you to measure and report
 
@@ -161,7 +164,7 @@ The current dashboard is stubbed. Replace it.
 ### What we want to see
 
 - **A point of view.** You pick which views matter and defend them. Generic dashboards are easy to generate; opinionated ones are not.
-- **Visualizations that fit the data.** Examples (not requirements): quality score distributions, GC content vs. read length scatter, sequence rank-abundance or rarefaction curves, sample-to-sample similarity, contamination indicators. Pick views that make biological sense and that you can explain.
+- **Visualizations that fit the data.** Examples (not requirements): quality score distributions, GC content vs. read length scatter, sequence rank-abundance or rarefaction curves, sample-to-sample similarity, k-mer composition signatures (sample clustering without taxonomic assignment), contamination indicators. Pick views that make biological sense and that you can explain.
 - **Performance at scale.** Server-side aggregation vs. shipping raw rows to the client. Streaming, pagination, virtualization. Memoization, web workers, GPU rendering, canvas/WebGL when appropriate. What blocks initial load — and what doesn't.
 - **At least one view that handles 100K+ rows gracefully.** TanStack Virtual, windowed rendering, server-side search — examples, not requirements.
 
