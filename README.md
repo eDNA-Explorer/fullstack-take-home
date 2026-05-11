@@ -4,6 +4,19 @@ This project consists of a data pipeline (Dagster) and a dashboard (Next.js). Th
 
 This challenge is deliberately open-ended. We assume you will use coding agents — that means the bar for "code that runs" is low, and our evaluation focuses on the engineering decisions you make on top of that. **Push the system. Measure it. Defend your choices.**
 
+## What We're Looking For
+
+|                          | Weight     | What we're looking for                                                        |
+| ------------------------ | ---------- | ----------------------------------------------------------------------------- |
+| Architecture & taste     | High       | Sensible choices, defended honestly. Shape of solution > volume of code.      |
+| Measurement              | High       | Real numbers on real hardware for real workloads. Benchmarks beat assertions. |
+| Performance              | High       | Throughput, memory, latency. Not "it works" — "it works at N."                |
+| AI-collaboration quality | High       | How you direct, audit, and override your agents.                              |
+| Correctness              | Required   | Outputs must be right. We will spot-check.                                    |
+| Code quality             | Required   | Readable, typed, lint-clean.                                                  |
+
+**Doing less, honestly, beats doing more with hand-waving.** If you cut scope, tell us why. If something doesn't work yet, tell us why. If you measured it and the number is bad, tell us the number anyway — we'd rather see the truth and your analysis than a polished claim.
+
 ## Project Structure
 
 ```
@@ -169,21 +182,6 @@ Add a section to `BENCHMARKS.md` (or a separate `DASHBOARD_BENCHMARKS.md`) with:
 - What computation lives on the server vs. the client, and why?
 - How does data get from Parquet to pixels? How many copies, parses, and re-renders along the way?
 - What suffers first on a 4-year-old laptop on hotel wifi?
-
----
-
-## Evaluation Criteria
-
-|                          | Weight     | What we're looking for                                                        |
-| ------------------------ | ---------- | ----------------------------------------------------------------------------- |
-| Architecture & taste     | High       | Sensible choices, defended honestly. Shape of solution > volume of code.      |
-| Measurement              | High       | Real numbers on real hardware for real workloads. Benchmarks beat assertions. |
-| Performance              | High       | Throughput, memory, latency. Not "it works" — "it works at N."                |
-| AI-collaboration quality | High       | How you direct, audit, and override your agents.                              |
-| Correctness              | Required   | Outputs must be right. We will spot-check.                                    |
-| Code quality             | Required   | Readable, typed, lint-clean.                                                  |
-
-**Doing less, honestly, beats doing more with hand-waving.** If you cut scope, tell us why. If something doesn't work yet, tell us why. If you measured it and the number is bad, tell us the number anyway — we'd rather see the truth and your analysis than a polished claim.
 
 ---
 
